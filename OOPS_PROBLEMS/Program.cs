@@ -1,6 +1,7 @@
 ﻿using OOPS_PROBLEMS.InventoryManagement;
 using OOPS_PROBLEMS.InventoryManagementSystem;
 using OOPS_PROBLEMS.StockAccountManagement;
+using OOPS_PROBLEMS.CommercialDataProcessing;
 
 namespace OOPS_PROBLEMS
 {
@@ -10,6 +11,8 @@ namespace OOPS_PROBLEMS
         const string INVENTORY_DATA_FILE_PATH = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\InventoryManagement\Inventory.json";
         const string INVENTORY_MANAGEMENT_DATA_FILE_PATH = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\InventoryManagementSystem\InventoryDetails.json";
         const string INVENTORY_STOCK_MANAGEMENT = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\StockAccountManagement\StockDetails.json";
+        const string STOCK_ACCOUNT_MANAGEMENT = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\CommercialDataProcessing\Stock.json";
+        const string COMPANY_ACCOUNT_MANAGEMENT = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\CommercialDataProcessing\Company.json";
         static void Main(string[] args)
         {
             bool flag = true;
@@ -87,6 +90,22 @@ namespace OOPS_PROBLEMS
                         CreateStock createStock = new CreateStock();
                         createStock.ReadJsonFile(INVENTORY_STOCK_MANAGEMENT);
                         Console.WriteLine("----------------------------------------------\n");
+                        break;
+
+
+                    case 4:
+                        StockManagement stockManagement = new StockManagement();
+                        stockManagement.ReadJsonFileStock(STOCK_ACCOUNT_MANAGEMENT);
+                        stockManagement.ReadJsonFileCompany(COMPANY_ACCOUNT_MANAGEMENT);
+                        Company company = new Company()
+                        {
+                            Symbol = "Facebook",
+                            NoOfShare = 5,
+                            PricePerShare = 10,
+                        };
+                        stockManagement.BuyCompanyShare(company);
+                        stockManagement.WriteToJsonStock(STOCK_ACCOUNT_MANAGEMENT);
+                        stockManagement.WriteToJsonCompany(COMPANY_ACCOUNT_MANAGEMENT);
                         break;
 
                     default:
