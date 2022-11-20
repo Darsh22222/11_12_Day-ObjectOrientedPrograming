@@ -1,5 +1,6 @@
 ﻿using OOPS_PROBLEMS.InventoryManagement;
 using OOPS_PROBLEMS.InventoryManagementSystem;
+using OOPS_PROBLEMS.StockAccountManagement;
 
 namespace OOPS_PROBLEMS
 {
@@ -8,6 +9,7 @@ namespace OOPS_PROBLEMS
     {
         const string INVENTORY_DATA_FILE_PATH = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\InventoryManagement\Inventory.json";
         const string INVENTORY_MANAGEMENT_DATA_FILE_PATH = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\InventoryManagementSystem\InventoryDetails.json";
+        const string INVENTORY_STOCK_MANAGEMENT = @"C:\GetRepositry\11_12_Day-ObjectOrientedPrograming\OOPS_PROBLEMS\StockAccountManagement\StockDetails.json";
         static void Main(string[] args)
         {
             bool flag = true;
@@ -79,6 +81,12 @@ namespace OOPS_PROBLEMS
                                     break;
                             }
                         }
+                        break;
+                    case 3:
+                        Console.WriteLine("------------------------Stock Account Management----------------------\n");
+                        CreateStock createStock = new CreateStock();
+                        createStock.ReadJsonFile(INVENTORY_STOCK_MANAGEMENT);
+                        Console.WriteLine("----------------------------------------------\n");
                         break;
 
                     default:
